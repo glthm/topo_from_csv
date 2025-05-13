@@ -1,2 +1,6 @@
 **.csv
-**.xls
+!topo_from_csv/test_sample.csv
+**.xlsx
+!topo_from_csv/test_sample.xlsx
+
+**/.*

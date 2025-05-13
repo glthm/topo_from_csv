@@ -1,0 +1,12 @@
+[project]
+name = "topo_from_csv"
+description = "Build a properly formatted list of climbing routes from the CSV file exported by the admin dashboard of your climbing gym on oblyk.org"
+authors = [
+	{name = "Guillaume THOMAS"}
+]
+readme="README.md"
+license-files = ["LICENSE.md"]
+dependencies = [
+	"polars",
+	"xlsxwriter"
+]
