@@ -78,17 +78,18 @@ def write_excel(output_path: Path|str, df: pl.DataFrame) -> None:
         for i, (val_to_format, color_str) in enumerate(zip(content["Relais"], df["hold_colors"])):
             color_list = color_str.split(",")
             cell_format_dict = {
-                        "bg_color": color_list[0] or default_color,
+                        "bg_color": color_list[0].strip() or default_color,
                         "bold": True,
-                        "align": "center_across"
+                        "align": "center"
                 }
             if len(color_list) >= 2:
                 # we only take the first 2 colors of colors list
                 cell_format_dict |= {
                         "diag_border": 5,
                         "diag_type": 1,
-                        "diag_color": color_list[1]  # this color isn't displayed
+                        "diag_color": color_list[1].strip()
                     }
+            print(f"{color_list}: {cell_format_dict}")
             ws.write(i+1, 0, val_to_format, wb.add_format(cell_format_dict))
 
 def main():
